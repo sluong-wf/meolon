@@ -1,103 +1,77 @@
-import Image from "next/image";
+import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import ProjectCard from '@/components/client/ProjectCard'
+import AnimatedSection from '@/components/client/AnimatedSection'
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const projects = [
+    {
+      title: 'Dojumbo',
+      description: 'A desktop RPG game built with Godot and C#, featuring immersive gameplay and rich storytelling.',
+      tech: ['Godot', 'C#', 'Game Development'],
+      image: '/dojumbo-preview.png', // You'll need to add this image later
+    },
+    {
+      title: 'iOS Flutter App',
+      description: 'Mobile application developed with Flutter and Firebase, showcasing modern app development practices.',
+      tech: ['Flutter', 'Dart', 'Firestore'],
+      image: '/flutter-app-preview.png', // You'll need to add this image later
+    },
+    {
+      title: 'Full Stack Web App',
+      description: 'Web application built with Python backend and React frontend, demonstrating full-stack development capabilities.',
+      tech: ['Python', 'React', 'Full Stack'],
+      image: '/webapp-preview.png', // You'll need to add this image later
+    },
+  ]
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+  return (
+    <div className="min-h-screen py-12">
+      {/* Hero Section */}
+      <AnimatedSection className="text-center mb-20">
+        <h1 className="text-4xl md:text-6xl font-bold mb-6 gradient-text">
+          Meolon.dev
+        </h1>
+        <p className="text-xl md:text-2xl text-gray-300 mb-4">
+          meolon
+        </p>
+        <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+          Crafting digital experiences through code and creativity
+        </p>
+      </AnimatedSection>
+
+      {/* Projects Section */}
+      <section className="mb-20">
+        <h2 className="text-3xl font-bold mb-12 text-center gradient-text">
+          Featured Projects
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
+            <ProjectCard key={index} project={project} index={index} />
+          ))}
+        </div>
+      </section>
+
+      {/* Social Links */}
+      <AnimatedSection className="text-center" delay={0.5}>
+        <div className="flex justify-center space-x-6">
           <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://github.com/your-github"
             target="_blank"
             rel="noopener noreferrer"
+            className="text-gray-300 hover:text-white transition-colors"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
+            <FaGithub className="w-8 h-8" />
           </a>
           <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://linkedin.com/in/your-linkedin"
             target="_blank"
             rel="noopener noreferrer"
+            className="text-gray-300 hover:text-white transition-colors"
           >
-            Read our docs
+            <FaLinkedin className="w-8 h-8" />
           </a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </AnimatedSection>
     </div>
-  );
+  )
 }
