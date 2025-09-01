@@ -17,8 +17,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${robotoMono.variable}`}>
-      <body className="bg-gradient-to-br from-primary-950 via-secondary-900 to-accent-950 min-h-screen text-white">
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <body className="bg-gray-50 min-h-screen text-gray-900">
+        <main className="w-full">
           {children}
         </main>
       </body>
